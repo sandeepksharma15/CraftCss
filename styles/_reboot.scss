@@ -162,7 +162,6 @@ abbr[title] {
 }
 
 // Address
-//
 address {
   margin-bottom: $spacer;
   font-style: normal;
@@ -170,7 +169,6 @@ address {
 }
 
 // Lists
-//
 ol,
 ul {
   padding-left: 2rem;
@@ -506,7 +504,7 @@ fieldset {
   min-width: 0; // 1
   padding: 0; // 2
   margin: 0; // 2
-  border: 1px solid #a0a0a0;
+  border: 1px solid rgb(160, 160, 160);
   // border: 0; // 2
 }
 
