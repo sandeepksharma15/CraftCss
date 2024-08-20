@@ -213,6 +213,7 @@
 
 :where(button, [type="button" i], [type="reset" i], [type="submit" i]) {
   -webkit-appearance: button;
+  appearance: button;
 }
 
 /**

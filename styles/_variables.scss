@@ -6,6 +6,8 @@ $prefix: $variable-prefix !default;
 //
 // Quickly modify global styling by enabling or disabling optional features.
 $enable-smooth-scroll: true !default;
+$enable-rounded: true !default;
+$enable-button-pointers: true !default;
 
 // Color system
 $white: #fff !default;
@@ -20,6 +22,17 @@ $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 $black: #000 !default;
 
+$blue: #0d6efd !default;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #d63384 !default;
+$red: #dc3545 !default;
+$orange: #fd7e14 !default;
+$yellow: #ffc107 !default;
+$green: #198754 !default;
+$teal: #20c997 !default;
+$cyan: #0dcaf0 !default;
+
 // Spacing
 $spacer: 1rem !default;
 
@@ -29,6 +42,16 @@ $spacer: 1rem !default;
 $body-text-align: null !default;
 $body-color: $gray-900 !default;
 $body-bg: $white !default;
+$body-emphasis-color: $black !default;
+
+// Links
+//
+// Style anchor elements.
+$link-color: $blue !default;
+$link-decoration: underline !default;
+$link-shade-percentage: 20% !default;
+$link-hover-color: shift-color($link-color, $link-shade-percentage) !default;
+$link-hover-decoration: null !default;
 
 // Typography
 $font-family-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto,
@@ -44,6 +67,9 @@ $font-family-code: var(--#{$prefix}font-monospace) !default;
 // $font-size-base affects the font size of the body text
 $font-size-root: null !default;
 $font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
+
+$small-font-size: 0.875em !default;
+$sub-sup-font-size: 0.75em !default;
 
 $font-weight-lighter: lighter !default;
 $font-weight-light: 300 !default;
@@ -70,8 +96,25 @@ $headings-color: inherit !default;
 // Paragraphs
 //
 // Style p element.
-
 $paragraph-margin-bottom: $spacer !default;
+
+// Code
+
+$code-font-size: $small-font-size !default;
+$code-color: $pink !default;
+
+$kbd-padding-y: 0.1875rem !default;
+$kbd-padding-x: 0.375rem !default;
+$kbd-font-size: $code-font-size !default;
+$kbd-color: var(--#{$prefix}body-bg) !default;
+$kbd-bg: var(--#{$prefix}body-color) !default;
+
+$pre-color: null !default;
+
+// Mark
+$mark-padding: 0.1875em !default;
+$mark-color: $body-color !default;
+$mark-bg: tint-color($yellow, 80%) !default;
 
 // Components
 $border-width: 1px !default;
@@ -82,3 +125,33 @@ $hr-margin-y: $spacer !default;
 $hr-border-color: null !default; // Allows for inherited colors
 $hr-border-width: var(--#{$prefix}border-width) !default;
 $hr-opacity: 0.25 !default;
+
+// Legend
+$legend-margin-bottom: 0.5rem !default;
+$legend-font-size: 1.5rem !default;
+$legend-font-weight: null !default;
+
+// Border Radius
+$border-radius: 0.375rem !default;
+$border-radius-sm: 0.25rem !default;
+$border-radius-lg: 0.5rem !default;
+$border-radius-xl: 1rem !default;
+$border-radius-xxl: 2rem !default;
+$border-radius-pill: 50rem !default;
+
+// Tables
+//
+// Customizes the `.table` component with basic values, each used across all table variations.
+$table-cell-padding-y: 0.5rem !default;
+$table-cell-padding-x: 0.5rem !default;
+$table-cell-padding-y-sm: 0.25rem !default;
+$table-cell-padding-x-sm: 0.25rem !default;
+
+$table-cell-vertical-align: top !default;
+
+$table-color: var(--#{$prefix}emphasis-color) !default;
+$table-bg: var(--#{$prefix}body-bg) !default;
+$table-accent-bg: transparent !default;
+
+$table-th-font-weight: null !default;
+$table-caption-color: $gray-600 !default;
