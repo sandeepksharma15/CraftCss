@@ -1,0 +1,5 @@
+:root {
+    // Fonts
+     --#{$prefix}font-sans-serif: #{inspect($font-family-sans-serif)};
+    --#{$prefix}font-monospace: #{inspect($font-family-monospace)};
+}

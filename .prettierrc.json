@@ -1,0 +1,8 @@
+{
+  "max_line_length": 120,
+  "indent_size": 4,
+  "quoteProps": "as-needed",
+  "bracketSameLine": true,
+  "arrowParens": "always",
+  "singleAttributePerLine": false
+}
