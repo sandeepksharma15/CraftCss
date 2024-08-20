@@ -27,7 +27,6 @@
 
 /**
  * 1. Use the default cursor in all browsers (opinionated).
- * 2. Change the line height in all browsers (opinionated).
  * 3. Breaks words to prevent overflow in all browsers (opinionated).
  * 4. Use a 4-space tab width in all browsers (opinionated).
  * 5. Remove the grey highlight on links in iOS (opinionated).
@@ -36,11 +35,42 @@
 
 :where(:root) {
   cursor: default; /* 1 */
-  line-height: 1.15; /* 2 */
   overflow-wrap: break-word; /* 3 */
   -moz-tab-size: 4; /* 4 */
   tab-size: 4; /* 4 */
   -webkit-tap-highlight-color: transparent; /* 5 */
   -webkit-text-size-adjust: 100%; /* 6 */
   text-size-adjust: 100%; /* 6 */
+}
+
+// Root
+//
+// Ability to the value of the root font sizes, affecting the value of `rem`.
+// null by default, thus nothing is generated.
+
+:root {
+  @if $font-size-root != null {
+    @include font-size(var(--#{$prefix}root-font-size));
+  }
+
+  @if $enable-smooth-scroll {
+    @media (prefers-reduced-motion: no-preference) {
+      scroll-behavior: smooth;
+    }
+  }
+}
+
+// Body
+//
+// 1. Remove the margin in all browsers.
+// 2. As a best practice, apply a default `background-color`.
+:where(body) {
+  margin: 0;
+  font-family: var(--#{$prefix}body-font-family);
+  /* TODO: Font Size */
+  font-weight: var(--#{$prefix}body-font-weight);
+  line-height: var(--#{$prefix}body-line-height);
+  text-align: var(--#{$prefix}body-text-align);
+  color: var(--#{$prefix}body-color);
+  background-color: var(--#{$prefix}body-bg); // 2
 }

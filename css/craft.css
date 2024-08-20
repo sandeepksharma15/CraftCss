@@ -6,6 +6,11 @@
 :root {
   --craft-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --craft-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --craft-body-font-family: var(--craft-font-sans-serif);
+  --craft-body-font-weight: 400;
+  --craft-body-line-height: 1.25;
+  --craft-body-color: #212529;
+  --craft-body-bg: #fff;
 }
 
 /**
@@ -31,7 +36,6 @@
 
 /**
  * 1. Use the default cursor in all browsers (opinionated).
- * 2. Change the line height in all browsers (opinionated).
  * 3. Breaks words to prevent overflow in all browsers (opinionated).
  * 4. Use a 4-space tab width in all browsers (opinionated).
  * 5. Remove the grey highlight on links in iOS (opinionated).
@@ -39,7 +43,6 @@
  */
 :where(:root) {
   cursor: default; /* 1 */
-  line-height: 1.15; /* 2 */
   overflow-wrap: break-word; /* 3 */
   -moz-tab-size: 4; /* 4 */
   -o-tab-size: 4;
@@ -48,4 +51,21 @@
   -webkit-text-size-adjust: 100%; /* 6 */
   -moz-text-size-adjust: 100%;
        text-size-adjust: 100%; /* 6 */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+
+:where(body) {
+  margin: 0;
+  font-family: var(--craft-body-font-family);
+  /* TODO: Font Size */
+  font-weight: var(--craft-body-font-weight);
+  line-height: var(--craft-body-line-height);
+  text-align: var(--craft-body-text-align);
+  color: var(--craft-body-color);
+  background-color: var(--craft-body-bg);
 }/*# sourceMappingURL=craft.css.map */
