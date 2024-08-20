@@ -9,8 +9,10 @@
   --craft-body-font-family: var(--craft-font-sans-serif);
   --craft-body-font-weight: 400;
   --craft-body-line-height: 1.25;
+  --craft-heading-color: inherit;
   --craft-body-color: #212529;
   --craft-body-bg: #fff;
+  --craft-border-width: 1px;
 }
 
 /**
@@ -68,4 +70,74 @@
   text-align: var(--craft-body-text-align);
   color: var(--craft-body-color);
   background-color: var(--craft-body-bg);
+}
+
+/**
+ * 1. Correct the inheritance of border color in Firefox.
+ * 2. Add the correct box sizing in Firefox.
+ * 3. Add the correct box sizing in Firefox.
+ * 4. Show the overflow in Edge and IE.
+ */
+:where(hr) {
+  box-sizing: content-box; /* 3 */
+  color: inherit; /* 1 */
+  height: 0; /* 2 */
+  overflow: visible; /* 4 */
+  border: 0;
+  margin: 1rem 0;
+  border-top: var(--craft-border-width) solid;
+  opacity: 0.25;
+}
+
+h6, h5, h4, h3, h2, h1 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--craft-heading-color);
+}
+
+h1 {
+  /* TODO: Font Size */
+}
+
+h2 {
+  /* TODO: Font Size */
+}
+
+h3 {
+  /* TODO: Font Size */
+}
+
+h4 {
+  /* TODO: Font Size */
+}
+
+h5 {
+  /* TODO: Font Size */
+}
+
+h6 {
+  /* TODO: Font Size */
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+abbr[title] {
+  text-decoration: underline; /* 1 */
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+  cursor: help;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+  border-bottom: none; /* 4 */
+}
+
+address {
+  margin-bottom: 1rem;
+  font-style: normal;
+  line-height: inherit;
 }/*# sourceMappingURL=craft.css.map */

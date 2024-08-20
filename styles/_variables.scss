@@ -20,6 +20,9 @@ $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 $black: #000 !default;
 
+// Spacing
+$spacer: 1rem !default;
+
 // Body
 //
 // Settings for the `<body>` element.
@@ -55,3 +58,27 @@ $font-weight-base: $font-weight-normal !default;
 $line-height-base: 1.25 !default;
 $line-height-sm: 1 !default;
 $line-height-lg: 2 !default;
+
+// Headings
+$headings-margin-bottom: $spacer !default;
+$headings-font-family: null !default;
+$headings-font-style: null !default;
+$headings-font-weight: 500 !default;
+$headings-line-height: $line-height-base !default;
+$headings-color: inherit !default;
+
+// Paragraphs
+//
+// Style p element.
+
+$paragraph-margin-bottom: $spacer !default;
+
+// Components
+$border-width: 1px !default;
+
+// hr
+$hr-color: inherit !default;
+$hr-margin-y: $spacer !default;
+$hr-border-color: null !default; // Allows for inherited colors
+$hr-border-width: var(--#{$prefix}border-width) !default;
+$hr-opacity: 0.25 !default;

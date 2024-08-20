@@ -74,3 +74,128 @@
   color: var(--#{$prefix}body-color);
   background-color: var(--#{$prefix}body-bg); // 2
 }
+
+/**
+ * 1. Correct the inheritance of border color in Firefox.
+ * 2. Add the correct box sizing in Firefox.
+ * 3. Add the correct box sizing in Firefox.
+ * 4. Show the overflow in Edge and IE.
+ */
+:where(hr) {
+  box-sizing: content-box; /* 3 */
+  color: $hr-color; /* 1 */
+  height: 0; /* 2 */
+  overflow: visible; /* 4 */
+
+  border: 0;
+  margin: $hr-margin-y 0;
+  border-top: $hr-border-width solid $hr-border-color;
+  opacity: $hr-opacity;
+}
+
+// Typography
+//
+// 1. Remove top margins from headings
+//    By default, `<h1>`-`<h6>` all receive top and bottom margins. We nuke the top
+//    margin for easier control within type scales as it avoids margin collapsing.
+%heading {
+  margin-top: 0; // 1
+  margin-bottom: $headings-margin-bottom;
+  font-family: $headings-font-family;
+  font-style: $headings-font-style;
+  font-weight: $headings-font-weight;
+  line-height: $headings-line-height;
+  color: var(--#{$prefix}heading-color);
+}
+
+h1 {
+  @extend %heading;
+  /* TODO: Font Size */
+}
+
+h2 {
+  @extend %heading;
+  /* TODO: Font Size */
+}
+
+h3 {
+  @extend %heading;
+  /* TODO: Font Size */
+}
+
+h4 {
+  @extend %heading;
+  /* TODO: Font Size */
+}
+
+h5 {
+  @extend %heading;
+  /* TODO: Font Size */
+}
+
+h6 {
+  @extend %heading;
+  /* TODO: Font Size */
+}
+
+// Reset margins on paragraphs
+//
+// Similarly, the top margin on `<p>`s get reset. However, we also reset the
+// bottom margin to use `rem` units instead of `em`.
+p {
+  margin-top: 0;
+  margin-bottom: $paragraph-margin-bottom;
+}
+
+// Abbreviations
+//
+// 1. Add the correct text decoration in Chrome, Edge, Opera, and Safari.
+// 2. Add explicit cursor to indicate changed behavior.
+// 3. Prevent the text-decoration to be skipped.
+// 4. Remove the bottom border in Chrome, Edge, Opera, and Safari.
+abbr[title] {
+  text-decoration: underline; /* 1 */
+  text-decoration: underline dotted; // 1
+  cursor: help; // 2
+  text-decoration-skip-ink: none; // 3
+  border-bottom: none; /* 4 */
+}
+
+// Address
+//
+address {
+  margin-bottom: $spacer;
+  font-style: normal;
+  line-height: inherit;
+}
+
+// Lists
+//
+ol,
+ul {
+  padding-left: 2rem;
+}
+
+ol,
+ul,
+dl {
+  margin-top: 0;
+  margin-bottom: $spacer;
+}
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+  margin-bottom: 0;
+}
+
+dt {
+  font-weight: $dt-font-weight;
+}
+
+// 1. Undo browser default
+dd {
+  margin-bottom: 0.5rem;
+  margin-left: 0; // 1
+}

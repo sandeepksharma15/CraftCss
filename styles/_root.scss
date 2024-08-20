@@ -11,6 +11,12 @@
     --#{$prefix}body-text-align: #{$body-text-align};
   }
 
+  --#{$prefix}heading-color: #{$headings-color};
+
+  // Colors
   --#{$prefix}body-color: #{$body-color};
   --#{$prefix}body-bg: #{$body-bg};
+
+  // Border
+  --#{$prefix}border-width: #{$border-width};
 }
