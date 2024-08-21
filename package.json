@@ -1,0 +1,22 @@
+{
+  "name": "craftcss",
+  "version": "1.0.0",
+  "description": "An Opinionated CSS Framework",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sandeepksharma15/CraftCss.git"
+  },
+  "author": "Sandeep",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sandeepksharma15/CraftCss/issues"
+  },
+  "homepage": "https://github.com/sandeepksharma15/CraftCss#readme",
+  "dependencies": {
+    "utopia-core-scss": "^1.1.0"
+  }
+}
