@@ -1,12 +1,10 @@
 // Reboot
-//
-// Normalization of HTML elements, Inspired from Bootstrap, Normalize and Sanitise
+// Normalization of HTML elements, inspired by Bootstrap, Normalize, and Sanitize
 
 /**
  * 1. Add border box sizing in all browsers (opinionated).
  * 2. Backgrounds do not repeat by default (opinionated).
  */
-
 *,
 ::before,
 ::after {
@@ -18,7 +16,6 @@
  * 1. Add text decoration inheritance in all browsers (opinionated).
  * 2. Add vertical alignment inheritance in all browsers (opinionated).
  */
-
 ::before,
 ::after {
   text-decoration: inherit; /* 1 */
@@ -27,32 +24,22 @@
 
 /**
  * 1. Use the default cursor in all browsers (opinionated).
- * 3. Breaks words to prevent overflow in all browsers (opinionated).
- * 4. Use a 4-space tab width in all browsers (opinionated).
- * 5. Remove the grey highlight on links in iOS (opinionated).
- * 6. Prevent adjustments of font size after orientation changes in iOS.
+ * 2. Break words to prevent overflow in all browsers (opinionated).
+ * 3. Use a 4-space tab width in all browsers (opinionated).
+ * 4. Remove the grey highlight on links in iOS (opinionated).
+ * 5. Prevent adjustments of font size after orientation changes in iOS.
  */
-
 :where(:root) {
   cursor: default; /* 1 */
-  overflow-wrap: break-word; /* 3 */
-  -moz-tab-size: 4; /* 4 */
-  tab-size: 4; /* 4 */
-  -webkit-tap-highlight-color: transparent; /* 5 */
-  -webkit-text-size-adjust: 100%; /* 6 */
-  text-size-adjust: 100%; /* 6 */
+  overflow-wrap: break-word; /* 2 */
+  -moz-tab-size: 4; /* 3 */
+  tab-size: 4; /* 3 */
+  -webkit-tap-highlight-color: transparent; /* 4 */
+  -webkit-text-size-adjust: 100%; /* 5 */
+  text-size-adjust: 100%; /* 5 */
 }
 
-// Root
-//
-// Ability to the value of the root font sizes, affecting the value of `rem`.
-// null by default, thus nothing is generated.
-
-:root {
-  @if $font-size-root != null {
-    @include font-size(var(--#{$prefix}root-font-size));
-  }
-
+:where(:root) {
   @if $enable-smooth-scroll {
     @media (prefers-reduced-motion: no-preference) {
       scroll-behavior: smooth;
@@ -61,31 +48,29 @@
 }
 
 // Body
-//
 // 1. Remove the margin in all browsers.
 // 2. As a best practice, apply a default `background-color`.
 :where(body) {
-  margin: 0;
+  margin: 0; /* 1 */
   font-family: var(--#{$prefix}body-font-family);
   /* TODO: Font Size */
   font-weight: var(--#{$prefix}body-font-weight);
   line-height: var(--#{$prefix}body-line-height);
   text-align: var(--#{$prefix}body-text-align);
   color: var(--#{$prefix}body-color);
-  background-color: var(--#{$prefix}body-bg); // 2
+  background-color: var(--#{$prefix}body-bg); /* 2 */
 }
 
 /**
  * 1. Correct the inheritance of border color in Firefox.
  * 2. Add the correct box sizing in Firefox.
- * 3. Add the correct box sizing in Firefox.
- * 4. Show the overflow in Edge and IE.
+ * 3. Show the overflow in Edge and IE.
  */
 :where(hr) {
-  box-sizing: content-box; /* 3 */
+  box-sizing: content-box; /* 2 */
   color: $hr-color; /* 1 */
   height: 0; /* 2 */
-  overflow: visible; /* 4 */
+  overflow: visible; /* 3 */
 
   border: 0;
   margin: $hr-margin-y 0;
@@ -94,12 +79,11 @@
 }
 
 // Typography
-//
 // 1. Remove top margins from headings
 //    By default, `<h1>`-`<h6>` all receive top and bottom margins. We nuke the top
 //    margin for easier control within type scales as it avoids margin collapsing.
 %heading {
-  margin-top: 0; // 1
+  margin-top: 0; /* 1 */
   margin-bottom: $headings-margin-bottom;
   font-family: $headings-font-family;
   font-style: $headings-font-style;
@@ -108,145 +92,131 @@
   color: var(--#{$prefix}heading-color);
 }
 
-h1 {
+:where(h1) {
   @extend %heading;
   /* TODO: Font Size */
 }
 
-h2 {
+:where(h2) {
   @extend %heading;
   /* TODO: Font Size */
 }
 
-h3 {
+:where(h3) {
   @extend %heading;
   /* TODO: Font Size */
 }
 
-h4 {
+:where(h4) {
   @extend %heading;
   /* TODO: Font Size */
 }
 
-h5 {
+:where(h5) {
   @extend %heading;
   /* TODO: Font Size */
 }
 
-h6 {
+:where(h6) {
   @extend %heading;
   /* TODO: Font Size */
 }
 
 // Reset margins on paragraphs
-//
 // Similarly, the top margin on `<p>`s get reset. However, we also reset the
 // bottom margin to use `rem` units instead of `em`.
-p {
+:where(p) {
   margin-top: 0;
   margin-bottom: $paragraph-margin-bottom;
 }
 
 // Abbreviations
-//
 // 1. Add the correct text decoration in Chrome, Edge, Opera, and Safari.
 // 2. Add explicit cursor to indicate changed behavior.
 // 3. Prevent the text-decoration to be skipped.
 // 4. Remove the bottom border in Chrome, Edge, Opera, and Safari.
-abbr[title] {
+:where(abbr[title]) {
   text-decoration: underline; /* 1 */
-  text-decoration: underline dotted; // 1
-  cursor: help; // 2
-  text-decoration-skip-ink: none; // 3
+  text-decoration: underline dotted; /* 1 */
+  cursor: help; /* 2 */
+  text-decoration-skip-ink: none; /* 3 */
   border-bottom: none; /* 4 */
 }
 
-// Address
-address {
+:where(address) {
   margin-bottom: $spacer;
   font-style: normal;
   line-height: inherit;
 }
 
 // Lists
-ol,
-ul {
+:where(ol, ul) {
   padding-left: 2rem;
 }
 
-ol,
-ul,
-dl {
+:where(ol, ul, dl) {
   margin-top: 0;
   margin-bottom: $spacer;
 }
 
-ol ol,
-ul ul,
-ol ul,
-ul ol {
+:where(ol ol, ul ul, ol ul, ul ol) {
   margin-bottom: 0;
 }
 
-dt {
+:where(dt) {
   font-weight: $dt-font-weight;
 }
 
 // 1. Undo browser default
-dd {
+:where(dd) {
   margin-bottom: 0.5rem;
-  margin-left: 0; // 1
+  margin-left: 0; /* 1 */
 }
 
 // Blockquote
-blockquote {
+:where(blockquote) {
   margin: 0 0 1rem;
 }
 
 // Strong
-//
 // Add the correct font weight in Chrome, Edge, and Safari
-b,
-strong {
+:where(b, strong) {
   font-weight: $font-weight-bolder;
 }
 
 // Small
-//
 // Add the correct font size in all browsers
-small {
-  font-size: 80%;
+:where(small) {
+  font-size: $small-font-size;
   /* TODO: Font Size */
 }
 
 // Mark
-mark {
+:where(mark) {
   padding: $mark-padding;
   color: var(--#{$prefix}highlight-color);
   background-color: var(--#{$prefix}highlight-bg);
 }
 
 // Sub and Sup
-//
-// Prevent `sub` and `sup` elements from affecting the line height in
-// all browsers.
-sub,
-sup {
+// Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+:where(sub, sup) {
   position: relative;
   font-size: $sub-sup-font-size;
   line-height: 0;
   vertical-align: baseline;
 }
 
-sub {
+:where(sub) {
   bottom: -0.25em;
 }
-sup {
+
+:where(sup) {
   top: -0.5em;
 }
 
 // Links
-a {
+:where(a) {
   background-color: transparent;
   color: rgba(
     var(--#{$prefix}link-color-rgb),
@@ -260,12 +230,8 @@ a {
   }
 }
 
-// And undo these styles for placeholder links/named anchors (without href).
-// It would be more straightforward to just use a[href] in previous block, but that
-// causes specificity issues in many other styles that are too complex to fix.
-// See https://github.com/twbs/bootstrap/issues/19402
-
-a:not([href]):not([class]) {
+// Undo styles for placeholder links/named anchors (without href).
+:where(a:not([href]):not([class])) {
   &,
   &:hover {
     color: inherit;
@@ -274,23 +240,20 @@ a:not([href]):not([class]) {
 }
 
 // Code
-pre,
-code,
-kbd,
-samp {
+:where(pre, code, kbd, samp) {
   font-family: $font-family-code;
-  font-size: 1em; // Correct the odd `em` font sizing in all browsers.
+  font-size: 1em; /* Correct the odd `em` font sizing in all browsers. */
   /* TODO: Font Size */
 }
 
 // 1. Remove browser default top margin
 // 2. Reset browser default of `1em` to use `rem`s
 // 3. Don't allow content to break outside
-pre {
+:where(pre) {
   display: block;
-  margin-top: 0; // 1
-  margin-bottom: $spacer; // 2
-  overflow: auto; // 3
+  margin-top: 0; /* 1 */
+  margin-bottom: $spacer; /* 2 */
+  overflow: auto; /* 3 */
   font-size: $code-font-size;
   /* TODO: Font Size */
   color: $pre-color;
@@ -304,7 +267,7 @@ pre {
   }
 }
 
-code {
+:where(code) {
   font-size: $code-font-size;
   /* TODO: Font Size */
   color: var(--#{$prefix}code-color);
@@ -316,7 +279,7 @@ code {
   }
 }
 
-kbd {
+:where(kbd) {
   padding: $kbd-padding-y $kbd-padding-x;
   font-size: $kbd-font-size;
   /* TODO: Font Size */
@@ -332,36 +295,30 @@ kbd {
 }
 
 // Figures
-//
 // Apply a consistent margin strategy (matches our type styles).
-figure {
+:where(figure) {
   margin: 0 0 $spacer;
 }
 
-/*
- * Change the alignment on media elements in all browsers (opinionated).
- */
-
+// Change the alignment on media elements in all browsers (opinionated).
 :where(audio, canvas, iframe, img, svg, video) {
   vertical-align: middle;
 }
 
-/**
- * Change the fill color to match the text color in all browsers (opinionated).
- */
+// Change the fill color to match the text color in all browsers (opinionated).
 :where(svg:not([fill])) {
   fill: currentColor;
 }
 
 // Tables
-table {
+:where(table) {
   caption-side: bottom;
   border-collapse: collapse;
   border-color: currentColor;
   text-indent: 0;
 }
 
-caption {
+:where(caption) {
   padding-top: $table-cell-padding-y;
   padding-bottom: $table-cell-padding-y;
   color: $table-caption-color;
@@ -371,34 +328,27 @@ caption {
 // 1. Removes font-weight bold by inheriting
 // 2. Matches default `<td>` alignment by inheriting `text-align`.
 // 3. Fix alignment for Safari
-
-th {
-  font-weight: $table-th-font-weight; // 1
-  text-align: inherit; // 2
-  text-align: -webkit-match-parent; // 3
+:where(th) {
+  font-weight: $table-th-font-weight; /* 1 */
+  text-align: inherit; /* 2 */
+  text-align: -webkit-match-parent; /* 3 */
 }
 
-thead,
-tbody,
-tfoot,
-tr,
-td,
-th {
+:where(thead, tbody, tfoot, tr, td, th) {
   border-color: inherit;
   border-style: solid;
   border-width: 0;
 }
 
 // Forms
-//
 // 1. Allow labels to use `margin` for spacing.
-label {
-  display: inline-block; // 1
+:where(label) {
+  display: inline-block; /* 1 */
 }
 
 // Remove the default `border-radius` that macOS Chrome adds.
 // See https://github.com/twbs/bootstrap/issues/24093
-button {
+:where(button) {
   border-radius: 0;
 }
 
@@ -406,46 +356,37 @@ button {
 // visible (e.g. as result of mouse click or touch tap). It already
 // should be doing this automatically, but seems to currently be
 // confused and applies its very visible two-tone outline anyway.
-button:focus:not(:focus-visible) {
+:where(button:focus:not(:focus-visible)) {
   outline: 0;
 }
 
 // 1. Remove the margin in Firefox and Safari
-input,
-button,
-select,
-optgroup,
-textarea {
-  margin: 0; // 1
+:where(input, button, select, optgroup, textarea) {
+  margin: 0; /* 1 */
   font-family: inherit;
   font-size: inherit;
   /* TODO: Font Size */
   line-height: inherit;
 }
 
-/**
- * Show the overflow in IE.
- * 1. Show the overflow in Edge.
- */
-button,
-input {
+// Show the overflow in IE.
+// 1. Show the overflow in Edge.
+:where(button, input) {
   overflow: visible; /* 1 */
 }
 
 // Remove the inheritance of text transform in Firefox
-button,
-select {
+:where(button, select) {
   text-transform: none;
 }
 
 // Set the cursor for non-`<button>` buttons
-//
 // Details at https://github.com/twbs/bootstrap/pull/30562
-[role="button"] {
+:where([role="button"]) {
   cursor: pointer;
 }
 
-select {
+:where(select) {
   // Remove the inheritance of word-wrap in Safari.
   // See https://github.com/twbs/bootstrap/issues/24990
   word-wrap: normal;
@@ -458,9 +399,11 @@ select {
 
 // Remove the dropdown arrow only from text type inputs built with datalists in Chrome.
 // See https://stackoverflow.com/a/54997118
-[list]:not([type="date"]):not([type="datetime-local"]):not([type="month"]):not(
-    [type="week"]
-  ):not([type="time"])::-webkit-calendar-picker-indicator {
+:where(
+    [list]:not([type="date"]):not([type="datetime-local"]):not(
+        [type="month"]
+      ):not([type="week"]):not([type="time"])::-webkit-calendar-picker-indicator
+  ) {
   display: none !important;
 }
 
@@ -468,16 +411,13 @@ select {
 //    controls in Android 4.
 // 2. Correct the inability to style clickable types in iOS and Safari.
 // 3. Opinionated: add "hand" cursor to non-disabled button elements.
-button,
-[type="button"], // 1
-[type="reset"],
-[type="submit"] {
-  -webkit-appearance: button; // 2
-  appearance: button; // 2
+:where(button, [type="button"], [type="reset"], [type="submit"]) {
+  -webkit-appearance: button; /* 2 */
+  appearance: button; /* 2 */
 
   @if $enable-button-pointers {
     &:not(:disabled) {
-      cursor: pointer; // 3
+      cursor: pointer; /* 3 */
     }
   }
 }
@@ -489,8 +429,8 @@ button,
 }
 
 // 1. Textareas should really only resize vertically so they don't break their (horizontal) containers.
-textarea {
-  resize: vertical; // 1
+:where(textarea) {
+  resize: vertical; /* 1 */
   overflow: auto;
 }
 
@@ -500,21 +440,20 @@ textarea {
 //    See https://github.com/twbs/bootstrap/issues/12359
 //    and https://html.spec.whatwg.org/multipage/#the-fieldset-and-legend-elements
 // 2. Reset the default outline behavior of fieldsets so they don't affect page layout.
-fieldset {
-  min-width: 0; // 1
-  padding: 0; // 2
-  margin: 0; // 2
-  border: 1px solid rgb(160, 160, 160);
-  // border: 0; // 2
+:where(fieldset) {
+  min-width: 0; /* 1 */
+  padding: 0; /* 2 */
+  margin: 0; /* 2 */
+  border: 0; /* 2 */
 }
 
 // 1. By using `float: left`, the legend will behave like a block element.
 //    This way the border of a fieldset wraps around the legend if present.
 // 2. Fix wrapping bug.
 //    See https://github.com/twbs/bootstrap/issues/29712
-legend {
+:where(legend) {
   box-sizing: border-box;
-  float: left; // 1
+  float: left; /* 1 */
   width: 100%;
   padding: 0;
   margin-bottom: $legend-margin-bottom;
@@ -524,7 +463,7 @@ legend {
   /* TODO: Font Size */
 
   + * {
-    clear: left; // 2
+    clear: left; /* 2 */
   }
 }
 
@@ -540,17 +479,13 @@ legend {
   padding: 0;
 }
 
-/**
- * Correct the cursor style of increment and decrement buttons in Safari.
- */
+// Correct the cursor style of increment and decrement buttons in Safari.
 ::-webkit-inner-spin-button,
 ::-webkit-outer-spin-button {
   height: auto;
 }
 
-/**
- * Correct the text style of placeholders in Chrome, Edge, and Safari.
- */
+// Correct the text style of placeholders in Chrome, Edge, and Safari.
 ::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.54;
@@ -561,10 +496,10 @@ legend {
 //    be added to `.form-control` as it's not specific enough. For details, see
 //    https://github.com/twbs/bootstrap/issues/11586.
 // 2. Correct the outline style in Safari.
-[type="search"] {
-  -webkit-appearance: textfield; // 1
-  appearance: textfield; // 1
-  outline-offset: -2px; // 2
+:where([type="search"]) {
+  -webkit-appearance: textfield; /* 1 */
+  appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
 }
 
 // Remove the inner padding in Chrome and Safari on macOS.
@@ -577,10 +512,8 @@ legend {
   padding: 0;
 }
 
-/**
- * 1. Correct the inability to style clickable types in iOS and Safari.
- * 2. Change font properties to `inherit` in Safari.
- */
+// 1. Correct the inability to style clickable types in iOS and Safari.
+// 2. Change font properties to `inherit` in Safari.
 ::-webkit-file-upload-button {
   -webkit-appearance: button; /* 1 */
   font: inherit; /* 2 */
@@ -589,41 +522,37 @@ legend {
 // 1. Inherit font family and line height for file input buttons
 // 2. Correct the inability to style clickable types in iOS and Safari.
 ::file-selector-button {
-  font: inherit; // 1
-  -webkit-appearance: button; // 2
-  appearance: button; // 2
+  font: inherit; /* 1 */
+  -webkit-appearance: button; /* 2 */
+  appearance: button; /* 2 */
 }
 
 // Correct element displays
-output {
+:where(output) {
   display: inline-block;
 }
 
 // Remove border from iframe
-iframe {
+:where(iframe) {
   border-style: none;
   border: 0;
 }
 
 // Summary
-//
 // 1. Add the correct display in all browsers
-summary {
-  display: list-item; // 1
+:where(summary) {
+  display: list-item; /* 1 */
   cursor: pointer;
 }
 
 // Progress
-//
 // Add the correct vertical alignment in Chrome, Firefox, and Opera.
-progress {
+:where(progress) {
   vertical-align: baseline;
 }
 
-/*
- * Add the correct display in Edge, IE 10+, and Firefox.
- */
-details {
+// Add the correct display in Edge, IE 10+, and Firefox.
+:where(details) {
   display: block;
 }
 
@@ -631,16 +560,7 @@ details {
   display: list-item;
 }
 
-// Hidden attribute
-//
-// Always hide an element with the `hidden` HTML attribute.
-[hidden] {
-  display: none !important;
-}
-
-/*
- * Add the correct styles in Safari.
- */
+// Add the correct styles in Safari.
 :where(dialog) {
   background-color: $white;
   border: solid;
@@ -660,25 +580,25 @@ details {
   display: none;
 }
 
-/**
- * Change the cursor on busy elements in all browsers (opinionated).
- */
+// Change the cursor on busy elements in all browsers (opinionated).
 :where([aria-busy="true" i]) {
   cursor: progress;
 }
 
-/*
- * Change the cursor on disabled, not-editable, or otherwise
- * inoperable elements in all browsers (opinionated).
- */
+// Change the cursor on disabled, not-editable, or otherwise
+// inoperable elements in all browsers (opinionated).
 :where([aria-disabled="true" i], [disabled]) {
   cursor: not-allowed;
 }
 
-/*
- * Change the display on visually hidden accessible elements
- * in all browsers (opinionated).
- */
+// Hidden attribute
+// Always hide an element with the `hidden` HTML attribute.
+:where([hidden]) {
+  display: none !important;
+}
+
+// Change the display on visually hidden accessible elements
+// in all browsers (opinionated).
 :where([aria-hidden="false" i][hidden]) {
   display: initial;
 }
