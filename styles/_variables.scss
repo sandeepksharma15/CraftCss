@@ -86,11 +86,11 @@ $line-height-sm: 1 !default;
 $line-height-lg: 2 !default;
 
 // Headings
-$headings-margin-bottom: $spacer !default;
+// $headings-margin-bottom: $spacer !default;
 $headings-font-family: $font-family-heading !default;
 $headings-font-style: null !default;
 $headings-font-weight: 500 !default;
-$headings-line-height: $line-height-base !default;
+$headings-line-height: 1.1 !default;
 $headings-color: inherit !default;
 
 // Paragraphs
