@@ -4,6 +4,7 @@
 // https://piccalil.li/blog/a-more-modern-css-reset/
 // https://www.joshwcomeau.com/css/custom-css-reset/
 // https://github.com/jensimmons/cssremedy
+// https://github.com/mayank99/reset.css
 
 /**
  * 1. Add border box sizing in all browsers (opinionated).
@@ -31,7 +32,14 @@
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
+  color-scheme: dark light;
+  scrollbar-gutter: stable;
 }
+
+:where(html:has(dialog:modal[open])) {
+  overflow: clip;
+}
+
 /**
  * 1. Use the default cursor in all browsers (opinionated).
  * 2. Break words to prevent overflow in all browsers (opinionated).
@@ -245,6 +253,7 @@
 // Links
 :where(a) {
   background-color: transparent;
+  text-underline-offset: $link-text-underline-offset;
   color: rgba(
     var(--#{$prefix}link-color-rgb),
     var(--#{$prefix}link-opacity, 1)
@@ -335,8 +344,9 @@
   display: block;
 }
 
-:where(img, svg, video, canvas) {
+:where(img, svg, video, canvas, picture) {
   height: auto;
+  block-size: auto;
 }
 
 :where(audio) {
@@ -381,7 +391,6 @@
 :where(th) {
   font-weight: $table-th-font-weight; /* 1 */
   text-align: inherit; /* 2 */
-  text-align: -webkit-match-parent; /* 3 */
 }
 
 :where(thead, tbody, tfoot, tr, td, th) {
@@ -416,7 +425,7 @@
   font-family: inherit;
   font-size: inherit;
   /* TODO: Font Size */
-  line-height: inherit;
+  //line-height: inherit;
 }
 
 // Show the overflow in IE.
@@ -470,6 +479,10 @@
       cursor: pointer; /* 3 */
     }
   }
+}
+
+:where(label:has(> input:disabled), label:has(+ input:disabled)) {
+  cursor: not-allowed;
 }
 
 // Remove inner border and padding from Firefox, but don't restore the outline like Normalize.
@@ -616,23 +629,17 @@
 }
 
 // Add the correct styles in Safari.
-:where(dialog) {
-  background-color: $white;
-  border: solid;
-  color: $black;
-  height: -moz-fit-content;
-  height: fit-content;
-  left: 0;
-  margin: auto;
-  padding: 1em;
-  position: absolute;
-  right: 0;
-  width: -moz-fit-content;
-  width: fit-content;
+:where(dialog, [popover]) {
+  border: none;
+  background: none;
+  color: inherit;
+  inset: unset;
+  max-width: unset;
+  max-height: unset;
 }
 
-:where(dialog:not([open])) {
-  display: none;
+:where(dialog:not([open], [popover]), [popover]:not(:popover-open)) {
+  display: none !important;
 }
 
 // Change the cursor on busy elements in all browsers (opinionated).
@@ -648,7 +655,7 @@
 
 // Hidden attribute
 // Always hide an element with the `hidden` HTML attribute.
-:where([hidden]) {
+:where([hidden]:not([hidden="until-found"])) {
   display: none !important;
 }
 
@@ -663,7 +670,23 @@
   position: absolute;
 }
 
-// Anything that has been anchored to should have extra scroll margin
-:where(:target) {
-  scroll-margin-block: 5ex;
+:where(.visually-hidden:not(:focus-within, :active)) {
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  user-select: none !important;
+}
+
+:where(:focus-visible) {
+  outline: 3px solid CanvasText;
+  box-shadow: 0 0 0 5px Canvas;
+  outline-offset: 1px;
+}
+
+:where(:focus-visible, :target) {
+  scroll-margin-block: 8vh;
 }

@@ -49,6 +49,7 @@ $link-decoration: underline !default;
 $link-shade-percentage: 20% !default;
 $link-hover-color: shift-color($link-color, $link-shade-percentage) !default;
 $link-hover-decoration: null !default;
+$link-text-underline-offset: 0.2ex;
 
 // Typography
 $font-family-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto,
