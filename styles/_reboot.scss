@@ -6,48 +6,80 @@
 // https://github.com/jensimmons/cssremedy
 // https://github.com/mayank99/reset.css
 
-/**
- * 1. Add border box sizing in all browsers (opinionated).
- * 2. Backgrounds do not repeat by default (opinionated).
- */
+@property --#{$prefix}font-sans-serif {
+  syntax: "<font-familty>";
+}
+
+@property --#{$prefix}font-serif {
+  syntax: "<font-familty>";
+}
+
+@property --#{$prefix}font-monospace {
+  syntax: "<font-familty>";
+}
+
+@property --#{$prefix}body-font-family {
+  syntax: "<font-familty>";
+}
+
+@property --#{$prefix}heading-font-family {
+  syntax: "<font-familty>";
+}
+
+@property --#{$prefix}body-font-weight {
+  syntax: "<font-weight>";
+}
+
+@property --#{$prefix}body-line-height {
+  syntax: "<line-height>";
+}
+
+@property --#{$prefix}headings-line-height {
+  syntax: "<line-height>";
+}
+
+@property --#{$prefix}body-color {
+  syntax: "<color>";
+}
+
+@property --#{$prefix}body-bg {
+  syntax: "<color>";
+}
+
+@property --#{$prefix}emphasis-color {
+  syntax: "<color>";
+}
+
+@property --#{$prefix}heading-color {
+  syntax: "<color>";
+}
+
+@property --#{$prefix}link-color {
+  syntax: "<color>";
+}
+
+
 *,
 ::before,
 ::after {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box; /* 1 */
-  background-repeat: no-repeat; /* 2 */
-}
-
-/**
- * 1. Add text decoration inheritance in all browsers (opinionated).
- * 2. Add vertical alignment inheritance in all browsers (opinionated).
- */
-::before,
-::after {
-  text-decoration: inherit; /* 1 */
-  vertical-align: inherit; /* 2 */
 }
 
 // Prevent adjustments of font size after orientation changes in iOS.
 :where(html) {
-  -moz-text-size-adjust: none;
-  -webkit-text-size-adjust: none;
   text-size-adjust: none;
   color-scheme: dark light;
   scrollbar-gutter: stable;
 }
 
-:where(html:has(dialog:modal[open])) {
-  overflow: clip;
-}
-
 /**
- * 1. Use the default cursor in all browsers (opinionated).
  * 2. Break words to prevent overflow in all browsers (opinionated).
  * 3. Use a 4-space tab width in all browsers (opinionated).
  * 4. Remove the grey highlight on links in iOS (opinionated).
  */
 :where(:root) {
-  cursor: default; /* 1 */
   overflow-wrap: break-word; /* 2 */
   -moz-tab-size: 4; /* 3 */
   tab-size: 4; /* 3 */
@@ -63,11 +95,9 @@
 }
 
 // Body
-// 1. Remove the margin in all browsers.
 // 2. As a best practice, apply a default `background-color`.
 :where(body) {
   min-height: 100vh;
-  margin: 0; /* 1 */
   font-family: var(--#{$prefix}body-font-family);
   /* TODO: Font Size */
   font-weight: var(--#{$prefix}body-font-weight);
@@ -79,9 +109,9 @@
 }
 
 // Remove default margin in favour of better control in authored CSS
-:where(body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd) {
-  margin-block-end: 0;
-}
+// :where(body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd) {
+//   margin-block-end: 0;
+// }
 
 // Set shorter line heights on headings and interactive elements
 :where(h1, h2, h3, h4, h5, h6, button, input, label) {
@@ -110,7 +140,7 @@
 //    By default, `<h1>`-`<h6>` all receive top and bottom margins. We nuke the top
 //    margin for easier control within type scales as it avoids margin collapsing.
 %heading {
-  margin-top: 0; /* 1 */
+  //margin-top: 0; /* 1 */
   //margin-bottom: $headings-margin-bottom;
   font-family: $headings-font-family;
   font-style: $headings-font-style;
@@ -154,7 +184,7 @@
 // Similarly, the top margin on `<p>`s get reset. However, we also reset the
 // bottom margin to use `rem` units instead of `em`.
 :where(p) {
-  margin-top: 0;
+  //  margin-top: 0;
   margin-bottom: $paragraph-margin-bottom;
   overflow-wrap: break-word;
 }
@@ -179,27 +209,9 @@
 }
 
 // Lists
-
-// Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed
-:where(ul[role="list"], ol[role="list"]) {
+:where(ul[role="list"], ol[role="list"], dt) {
   list-style: none;
-}
-
-:where(ol, ul) {
-  padding-left: 2rem;
-}
-
-:where(ol, ul, dl) {
-  margin-top: 0;
-  margin-bottom: $spacer;
-}
-
-:where(ol ol, ul ul, ol ul, ul ol) {
-  margin-bottom: 0;
-}
-
-:where(dt) {
-  font-weight: $dt-font-weight;
+  font-weight: inherit;
 }
 
 // 1. Undo browser default
@@ -421,17 +433,9 @@
 
 // 1. Remove the margin in Firefox and Safari
 :where(input, button, select, optgroup, textarea) {
-  margin: 0; /* 1 */
-  font-family: inherit;
-  font-size: inherit;
-  /* TODO: Font Size */
-  //line-height: inherit;
-}
-
-// Show the overflow in IE.
-// 1. Show the overflow in Edge.
-:where(button, input) {
-  overflow: visible; /* 1 */
+  margin: 0;
+  font: inherit;
+  overflow: visible;
 }
 
 // Remove the inheritance of text transform in Firefox
