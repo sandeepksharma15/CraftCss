@@ -27,45 +27,6 @@
   --craft-border-width: 1px;
 }
 
-@property --craft-font-sans-serif {
-  syntax: "<font-familty>";
-}
-@property --craft-font-serif {
-  syntax: "<font-familty>";
-}
-@property --craft-font-monospace {
-  syntax: "<font-familty>";
-}
-@property --craft-body-font-family {
-  syntax: "<font-familty>";
-}
-@property --craft-heading-font-family {
-  syntax: "<font-familty>";
-}
-@property --craft-body-font-weight {
-  syntax: "<font-weight>";
-}
-@property --craft-body-line-height {
-  syntax: "<line-height>";
-}
-@property --craft-headings-line-height {
-  syntax: "<line-height>";
-}
-@property --craft-body-color {
-  syntax: "<color>";
-}
-@property --craft-body-bg {
-  syntax: "<color>";
-}
-@property --craft-emphasis-color {
-  syntax: "<color>";
-}
-@property --craft-heading-color {
-  syntax: "<color>";
-}
-@property --craft-link-color {
-  syntax: "<color>";
-}
 *,
 ::before,
 ::after {

@@ -6,59 +6,6 @@
 // https://github.com/jensimmons/cssremedy
 // https://github.com/mayank99/reset.css
 
-@property --#{$prefix}font-sans-serif {
-  syntax: "<font-familty>";
-}
-
-@property --#{$prefix}font-serif {
-  syntax: "<font-familty>";
-}
-
-@property --#{$prefix}font-monospace {
-  syntax: "<font-familty>";
-}
-
-@property --#{$prefix}body-font-family {
-  syntax: "<font-familty>";
-}
-
-@property --#{$prefix}heading-font-family {
-  syntax: "<font-familty>";
-}
-
-@property --#{$prefix}body-font-weight {
-  syntax: "<font-weight>";
-}
-
-@property --#{$prefix}body-line-height {
-  syntax: "<line-height>";
-}
-
-@property --#{$prefix}headings-line-height {
-  syntax: "<line-height>";
-}
-
-@property --#{$prefix}body-color {
-  syntax: "<color>";
-}
-
-@property --#{$prefix}body-bg {
-  syntax: "<color>";
-}
-
-@property --#{$prefix}emphasis-color {
-  syntax: "<color>";
-}
-
-@property --#{$prefix}heading-color {
-  syntax: "<color>";
-}
-
-@property --#{$prefix}link-color {
-  syntax: "<color>";
-}
-
-
 *,
 ::before,
 ::after {
