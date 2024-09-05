@@ -1,0 +1,9 @@
+* {
+  /* border: 1px solid red; */
+}
+
+/* Style for the section heading */
+h1.section-heading {
+  border-color: blue;
+  text-align: center;
+}

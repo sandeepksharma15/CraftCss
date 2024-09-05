@@ -55,6 +55,13 @@
   -webkit-font-smoothing: antialiased;
 }
 
+// Setting container-type: inline-size; specifies that the container
+// should only contain its inline size, which can be useful for optimizing
+// layout calculations and improving performance.
+:where(header, footer, main, section, article) {
+  container-type: inline-size;
+}
+
 // Remove default margin in favour of better control in authored CSS
 // :where(body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd) {
 //   margin-block-end: 0;
@@ -83,12 +90,7 @@
 }
 
 // Typography
-// 1. Remove top margins from headings
-//    By default, `<h1>`-`<h6>` all receive top and bottom margins. We nuke the top
-//    margin for easier control within type scales as it avoids margin collapsing.
 %heading {
-  //margin-top: 0; /* 1 */
-  //margin-bottom: $headings-margin-bottom;
   font-family: $headings-font-family;
   font-style: $headings-font-style;
   font-weight: $headings-font-weight;
@@ -131,9 +133,14 @@
 // Similarly, the top margin on `<p>`s get reset. However, we also reset the
 // bottom margin to use `rem` units instead of `em`.
 :where(p) {
-  //  margin-top: 0;
-  margin-bottom: $paragraph-margin-bottom;
+  margin-bottom: 0rem;
   overflow-wrap: break-word;
+}
+
+// To ensure that the text lines are not too long as reading can be an issue for user
+:where(p, li, figcaption) {
+  max-width: 80ch;
+  text-wrap: pretty;
 }
 
 // Abbreviations
@@ -150,7 +157,6 @@
 }
 
 :where(address) {
-  margin-bottom: $spacer;
   font-style: normal;
   line-height: inherit;
 }

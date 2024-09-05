@@ -74,6 +74,10 @@
   -webkit-font-smoothing: antialiased;
 }
 
+:where(header, footer, main, section, article) {
+  container-type: inline-size;
+}
+
 :where(h1, h2, h3, h4, h5, h6, button, input, label) {
   line-height: 1.1;
 }
@@ -127,8 +131,13 @@
 }
 
 :where(p) {
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
   overflow-wrap: break-word;
+}
+
+:where(p, li, figcaption) {
+  max-width: 80ch;
+  text-wrap: pretty;
 }
 
 :where(abbr[title]) {
@@ -142,7 +151,6 @@
 }
 
 :where(address) {
-  margin-bottom: 1rem;
   font-style: normal;
   line-height: inherit;
 }

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Craft CSS: UI Reboot</title>
+  <!-- <link rel="stylesheet" href="../css/craft.css" />
+  <link rel="stylesheet" href="../css/RebootTest.css" /> -->
+  <body>
+    <h1 class="section-heading">HTML Typography Tags Showcase</h1>
+
+    <!-- Display of all heading tags -->
+    <section>
+      <h1>This is an H1 Heading</h1>
+      <h2>This is an H2 Heading</h2>
+      <h3>This is an H3 Heading</h3>
+      <h4>This is an H4 Heading</h4>
+      <h5>This is an H5 Heading</h5>
+      <h6>This is an H6 Heading</h6>
+      <small>This is a small text</small>
+      <h2>Definition List Test</h2>
+      <dl>
+        <dt>HTML</dt>
+        <dd>HyperText Markup Language</dd>
+        <dt>CSS</dt>
+        <dd>Cascading Style Sheets</dd>
+      </dl>
+      <h2>Blockquote Test</h2>
+      <blockquote cite="https://www.example.com">
+        "The only limit to our realization of tomorrow is our doubts of today."
+      </blockquote>
+      <h2>Text Formatting</h2>
+      <p>This is <b>bold</b> text and this is <strong>strong</strong> text.</p>
+      <p>This text is <mark>highlighted</mark> for emphasis.</p>
+      <p>Chemical formula for water is H<sub>2</sub>O.</p>
+      <p>E=mc<sup>2</sup> is Einstein's equation.</p>
+      <p>
+        Visit <a href="https://www.example.com">this website</a> for more info.
+      </p>
+      <h2>Code and Keyboard Input</h2>
+      <pre>
+<code>
+function greet() {
+    console.log("Hello, World!");
+}
+</code>
+      </pre>
+      <p>To submit the form, press <kbd>Ctrl</kbd> + <kbd>Enter</kbd>.</p>
+      <p>The sample output of the program is <samp>Hello, World!</samp>.</p>
+
+      <h2>More Information (Summary, Details)</h2>
+      <details>
+        <summary>Click to expand</summary>
+        <p>
+          This is some additional information that is revealed when the summary
+          is clicked. You can add more content here as needed, such as images,
+          links, or further details.
+        </p>
+      </details>
+
+      <details>
+        <summary>Another section</summary>
+        <ul>
+          <li>First item</li>
+          <li>Second item</li>
+          <li>Third item</li>
+        </ul>
+      </details>
+    </section>
+    <br />
+
+    <h1 class="section-heading">HTML HR Tag Showcase</h1>
+
+    <!-- Display of all hr tag -->
+    <section>
+      <!-- Example 1: Basic hr -->
+      <div class="hr-example">
+        <p>Paragraph before the horizontal rule.</p>
+        <hr />
+        <p>Paragraph after the horizontal rule.</p>
+      </div>
+
+      <!-- Example 2: hr with attributes -->
+      <div class="hr-example">
+        <p>Horizontal rule with additional styling.</p>
+        <hr style="border: 2px solid blue" />
+        <p>Paragraph after the styled horizontal rule.</p>
+      </div>
+
+      <!-- Example 3: hr with custom width -->
+      <div class="hr-example">
+        <p>Horizontal rule with a custom width.</p>
+        <hr style="width: 50%; border: 1px solid green" />
+        <p>Paragraph after the custom width horizontal rule.</p>
+      </div>
+
+      <!-- Example 4: hr with alignment -->
+      <div class="hr-example">
+        <p>Horizontal rule aligned to the left.</p>
+        <hr style="width: 50%; border: 1px solid purple; text-align: left" />
+        <p>Paragraph after the left-aligned horizontal rule.</p>
+      </div>
+
+      <!-- Example 5: hr with custom color -->
+      <div class="hr-example">
+        <p>Horizontal rule with a custom color.</p>
+        <hr style="border-color: orange" />
+        <p>Paragraph after the custom color horizontal rule.</p>
+      </div>
+    </section>
+
+    <h1 class="section-heading">HTML ABBR Tag Showcase</h1>
+
+    <!-- Display of all hr tag -->
+    <section>
+      <p>The following is an abbreviation:</p>
+      <p>
+        The term <abbr title="Hypertext Markup Language">HTML</abbr> is widely
+        used in web development.
+      </p>
+      <p>
+        Another example is <abbr title="Cascading Style Sheets">CSS</abbr>,
+        which is used to style web pages.
+      </p>
+    </section>
+
+    <h1 class="section-heading">HTML ADDRESS Tag Showcase</h1>
+
+    <!-- Display of all hr tag -->
+    <section>
+      <address>
+        <strong>XYZ Corporation</strong><br />
+        1234 Elm Street<br />
+        Springfield, IL 62704<br />
+        <a href="mailto:info@xyzcorp.com">info@xyzcorp.com</a><br />
+        <a href="tel:+11234567890">(123) 456-7890</a>
+      </address>
+    </section>
+
+    <h1 class="section-heading">List Tag Showcase</h1>
+    <!-- Display of all hr tag -->
+    <section>
+      <h2>Ordered List</h2>
+      <ol>
+        <li>Item 1</li>
+        <li>
+          Item 2
+          <ol>
+            <li>Sub-item 1</li>
+            <li>Sub-item 2</li>
+          </ol>
+        </li>
+        <li>Item 3</li>
+      </ol>
+
+      <h2>Unordered List</h2>
+      <ul>
+        <li>First item</li>
+        <li>
+          Second item
+          <ul>
+            <li>Sub-item A</li>
+            <li>Sub-item B</li>
+          </ul>
+        </li>
+        <li>Third item</li>
+      </ul>
+    </section>
+
+    <h1 class="section-heading">HTML Figure Tag Showcase</h1>
+    <section>
+      <figure>
+        <img
+          src="https://via.placeholder.com/300x200"
+          alt="Placeholder Image" />
+        <figcaption>
+          An example of a figure with an image and caption.
+        </figcaption>
+      </figure>
+    </section>
+
+    <h1 class="section-heading">HTML Media Tags Showcase</h1>
+    <section>
+      <!-- Audio -->
+      <div>
+        <h3>Audio Tag</h3>
+        <audio controls>
+          <source src="audio-sample.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+
+      <!-- Canvas -->
+      <div>
+        <h3>Canvas Tag</h3>
+        <canvas width="300" height="200" style="border: 1px solid red">
+          Your browser does not support the canvas element.
+        </canvas>
+      </div>
+
+      <!-- Iframe -->
+      <div>
+        <h3>Iframe Tag</h3>
+        <iframe
+          src="https://www.example.com"
+          width="300"
+          height="200"
+          style="border: 1px solid red">
+          Your browser does not support iframes.
+        </iframe>
+      </div>
+
+      <!-- SVG -->
+      <div>
+        <h3>SVG Tag</h3>
+        <svg width="100" height="100" style="border: 1px solid red">
+          <circle
+            cx="50"
+            cy="50"
+            r="40"
+            stroke="black"
+            stroke-width="3"
+            fill="red" />
+        </svg>
+      </div>
+
+      <!-- Video -->
+      <div>
+        <h3>Video Tag</h3>
+        <video controls width="300">
+          <source src="video-sample.mp4" type="video/mp4" />
+          Your browser does not support the video element.
+        </video>
+      </div>
+
+      <!-- Img -->
+      <div>
+        <h3>Img Tag</h3>
+        <img src="../assets/actress.jpg" alt="Example Image" width="300" />
+      </div>
+
+      <!-- Picture -->
+      <div>
+        <h3>Picture Tag</h3>
+        <picture>
+          <source srcset="../assets/actress.jpg" media="(min-width: 600px)" />
+          <img src="../assets/actress.jpg" alt="Example Picture" width="300" />
+        </picture>
+      </div>
+
+      <!-- Embed -->
+      <div>
+        <h3>Embed Tag</h3>
+        <embed
+          src="../assets/Love Hypnosis.pdf"
+          type="application/pdf"
+          width="300"
+          height="200"
+          style="border: 1px solid red" />
+      </div>
+
+      <!-- Object -->
+      <div>
+        <h3>Object Tag</h3>
+        <object
+          data="example.svg"
+          type="image/svg+xml"
+          width="300"
+          height="200"
+          style="border: 1px solid red">
+          Your browser does not support the object tag.
+        </object>
+      </div>
+    </section>
+    <br />
+
+    <h1 class="section-heading">HTML Tables Showcase</h1>
+    <section>
+      <table>
+        <caption>
+          Monthly Sales Data
+        </caption>
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Sales</th>
+            <th>Profit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>January</td>
+            <td>$5,000</td>
+            <td>$1,200</td>
+          </tr>
+          <tr>
+            <td>February</td>
+            <td>$4,800</td>
+            <td>$1,000</td>
+          </tr>
+          <tr>
+            <td>March</td>
+            <td>$6,200</td>
+            <td>$1,500</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>Total</td>
+            <td>$15,000</td>
+            <td>$3,700</td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+    <br />
+
+    <h1 class="section-heading">HTML Forms Showcase</h1>
+    <section>
+      <form action="#" method="post">
+        <fieldset>
+          <legend>Contact Form</legend>
+
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your Name" /><br /><br />
+
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Your Email" /><br /><br />
+
+          <label for="message">Message:</label><br />
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            cols="50"
+            placeholder="Your Message"></textarea
+          ><br /><br />
+
+          <label for="gender">Gender:</label>
+          <select id="gender" name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option></select
+          ><br /><br />
+
+          <fieldset>
+            <legend>Preferences</legend>
+            <label>
+              <input type="checkbox" name="subscribe" checked />
+              Subscribe to newsletter </label
+            ><br />
+            <label>
+              <input type="radio" name="contact-method" value="email" checked />
+              Email </label
+            ><br />
+            <label>
+              <input type="radio" name="contact-method" value="phone" />
+              Phone
+            </label>
+          </fieldset>
+          <br />
+
+          <button type="submit">Submit</button>
+          <button type="reset">Reset</button>
+        </fieldset>
+
+        <div>
+          <label for="numeric-input">Numeric Input:</label>
+          <input
+            type="number"
+            id="numeric-input"
+            name="numeric-input"
+            min="0"
+            max="100"
+            step="1" />
+        </div>
+
+        <div>
+          <label for="search-box">Search Box:</label>
+          <input
+            type="search"
+            id="search-box"
+            name="search-box"
+            placeholder="Search..." />
+        </div>
+
+        <div>
+          <label for="file-selector">File Selector:</label>
+          <input type="file" id="file-selector" name="file-selector" />
+        </div>
+      </form>
+    </section>
+    <br />
+
+    <h1 class="section-heading">HTML Progress Showcase</h1>
+    <section>
+      <h2>File Upload Progress</h2>
+      <progress value="60" max="100"></progress>
+      <p>Progress: 60%</p>
+    </section>
+    <br />
+
+    <!-- A Link To Go Back To index.html -->
+    <a href="../index.html">Back to Index</a>
+  </body>
+</html>
