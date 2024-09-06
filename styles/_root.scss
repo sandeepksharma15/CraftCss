@@ -1,3 +1,5 @@
+@use "../node_modules/utopia-core-scss/src/utopia" as utopia;
+
 :root {
   // Font Variables
   --#{$prefix}font-sans-serif: #{inspect($font-family-sans-serif)};
@@ -6,8 +8,6 @@
   --#{$prefix}body-font-family: #{inspect($font-family-base)};
   --#{$prefix}heading-font-family: #{inspect($font-family-heading)};
   --#{$prefix}body-font-weight: #{$font-weight-base};
-  --#{$prefix}body-line-height: #{$line-height-base};
-  --#{$prefix}headings-line-height: #{$headings-line-height};
 
   // Conditional Font Variable
   @if $body-text-align != null {
@@ -37,4 +37,43 @@
 
   // Border Variable
   --#{$prefix}border-width: #{$border-width};
+
+  // Fluid Typography Variables
+  @include utopia.generateTypeScale(
+    (
+      "minWidth": $minVwWidth,
+      "maxWidth": $maxVwWidth,
+      "minFontSize": $minFontSize,
+      "maxFontSize": $maxFontSize,
+      "minTypeScale": $minTypeScale,
+      "maxTypeScale": $maxTypeScale,
+      "positiveSteps": 5,
+      "negativeSteps": 2,
+      "prefix": $font-variable-prefix,
+      "relativeTo": "viewport-width",
+    )
+  );
+
+  // Fluid Spacing Variables
+  @include utopia.generateSpaceScale(
+    (
+      "minWidth": $minVwWidth,
+      "maxWidth": $maxVwWidth,
+      "minSize": $minFontSize,
+      "maxSize": $maxFontSize,
+      "positiveSteps": (
+        1.5,
+        2,
+        3,
+      ),
+      "negativeSteps": (
+        0.5,
+        0.25,
+        0,
+      ),
+      /* Optional params */ "usePx": true,
+      "relativeTo": "container",
+      "prefix": $space-prefix,
+    )
+  );
 }

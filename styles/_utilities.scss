@@ -1,0 +1,101 @@
+// Instead of using Responsive Spacing System, we are using a simple spacing system.
+// This is Fluid and adjusts to the Container width.
+$spacings: () !default;
+
+/* prettier-ignore */
+$spacings: map-merge(
+  (
+    "margin": (
+      property: margin, 
+      class: m,
+      values: map-merge($spacers, (auto: auto))
+    ),
+    "margin-x": (
+      property: margin-right margin-left,
+      class: mx,
+      values: map-merge($spacers, (auto: auto))
+    ),
+    "margin-y": (
+      property: margin-top margin-bottom,
+      class: my,
+      values: map-merge($spacers, (auto: auto))
+    ),
+    "margin-top": (
+      property: margin-top,
+      class: mt,
+      values: map-merge($spacers, (auto: auto))
+    ),
+    "margin-end": (
+      property: margin-right,
+      class: me,
+      values: map-merge($spacers, (auto: auto))
+    ),
+    "margin-bottom": (
+      property: margin-bottom,
+      class: mb,
+      values: map-merge($spacers, (auto: auto))
+    ),
+    "margin-start": (
+      responsive: true,
+      property: margin-left,
+      class: ms,
+      values: map-merge($spacers, (auto: auto))
+    ),
+    "padding": (
+      property: padding,
+      class: p,
+      values: $spacers
+    ),
+    "padding-x": (
+      property: padding-right padding-left,
+      class: px,
+      values: $spacers
+    ),
+    "padding-y": (
+      property: padding-top padding-bottom,
+      class: py,
+      values: $spacers
+    ),
+    "padding-top": (
+      property: padding-top,
+      class: pt,
+      values: $spacers
+    ),
+    "padding-end": (
+      property: padding-right,
+      class: pe,
+      values: $spacers
+    ),
+    "padding-bottom": (
+      property: padding-bottom,
+      class: pb,
+      values: $spacers
+    ),
+    "padding-start": (
+      property: padding-left,
+      class: ps,
+      values: $spacers
+    ),
+    // Gap utility
+    "gap": (
+      property: gap,
+      class: gap,
+      values: $spacers
+    ),
+    "row-gap": (
+      property: row-gap,
+      class: row-gap,
+      values: $spacers
+    ),
+    "column-gap": (
+      property: column-gap,
+      class: column-gap,
+      values: $spacers
+    ),
+  ),
+  $spacings
+);
+
+@each $key, $spacing in $spacings {
+  @include generate-utility($spacing);
+}

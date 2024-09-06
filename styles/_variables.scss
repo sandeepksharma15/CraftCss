@@ -1,12 +1,15 @@
 // Prefix for :root CSS variables
 $variable-prefix: craft- !default;
 $prefix: $variable-prefix !default;
+$font-variable-prefix: fs- !default;
+$space-prefix: space- !default;
 
 // Options
 // Quickly modify global styling by enabling or disabling optional features.
 $enable-smooth-scroll: true !default;
 $enable-rounded: true !default;
 $enable-button-pointers: true !default;
+$enable-important-utilities: true !default;
 
 // Color system
 $white: #fff !default;
@@ -35,12 +38,26 @@ $cyan: #0dcaf0 !default;
 // Spacing
 $spacer: 1rem !default;
 
+$spacers: (
+  0: var(--#{$space-prefix}3xs),
+  1: var(--#{$space-prefix}2xs),
+  2: var(--#{$space-prefix}xs),
+  3: var(--#{$space-prefix}s),
+  4: var(--#{$space-prefix}m),
+  5: var(--#{$space-prefix}l),
+  6: var(--#{$space-prefix}xl),
+) !default;
+
 // Body
 // Settings for the `<body>` element.
 $body-text-align: null !default;
 $body-color: $gray-900 !default;
 $body-bg: $white !default;
 $body-emphasis-color: $black !default;
+
+// ViewPort
+$minVwWidth: 480;
+$maxVwWidth: 1920;
 
 // Links
 // Style anchor elements.
@@ -67,8 +84,14 @@ $font-family-code: var(--#{$prefix}font-monospace) !default;
 
 // Font sizes
 $font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
-$small-font-size: 0.875em !default;
-$sub-sup-font-size: 0.75em !default;
+$small-font-size: var(--#{$font-variable-prefix}-1) !default;
+$sub-sup-font-size: var(--#{$font-variable-prefix}-2) !default;
+
+// Fluid Typography
+$minFontSize: 16;
+$maxFontSize: 20;
+$minTypeScale: 1.2;
+$maxTypeScale: 1.25;
 
 // Font weights
 $font-weight-lighter: lighter !default;
@@ -81,17 +104,11 @@ $font-weight-bolder: bolder !default;
 
 $font-weight-base: $font-weight-normal !default;
 
-// Line heights
-$line-height-base: 1.25 !default;
-$line-height-sm: 1 !default;
-$line-height-lg: 2 !default;
-
 // Headings
 // $headings-margin-bottom: $spacer !default;
 $headings-font-family: $font-family-heading !default;
 $headings-font-style: null !default;
 $headings-font-weight: 500 !default;
-$headings-line-height: 1.1 !default;
 $headings-color: inherit !default;
 
 // Paragraphs
@@ -110,12 +127,18 @@ $kbd-bg: var(--#{$prefix}body-color) !default;
 $pre-color: null !default;
 
 // Mark
-$mark-padding: 0.1875em !default;
+$mark-padding: 0.18em !default;
 $mark-color: $body-color !default;
 $mark-bg: tint-color($yellow, 80%) !default;
 
 // Components
 $border-width: 1px !default;
+
+// Blockquotes
+$blockquote-margin-y: $spacer !default;
+$blockquote-font-size: var(--#{$font-variable-prefix}1) !default;
+$blockquote-footer-color: $gray-600 !default;
+$blockquote-footer-font-size: $small-font-size !default;
 
 // hr
 $hr-color: inherit !default;
@@ -126,7 +149,7 @@ $hr-opacity: 0.25 !default;
 
 // Legend
 $legend-margin-bottom: 0.5rem !default;
-$legend-font-size: 1.5rem !default;
+$legend-font-size: var(--#{$font-variable-prefix}2);
 $legend-font-weight: null !default;
 
 // DT

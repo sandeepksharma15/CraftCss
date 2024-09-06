@@ -4,5 +4,10 @@
   "quoteProps": "as-needed",
   "bracketSameLine": true,
   "arrowParens": "always",
-  "singleAttributePerLine": false
+  "singleAttributePerLine": false,
+  "prettier.printWidth": 100,
+  "scss": {
+    "bracketSpacing": true,
+    "printWidth": 100
+  }
 }

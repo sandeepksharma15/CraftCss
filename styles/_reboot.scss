@@ -46,9 +46,9 @@
 :where(body) {
   min-height: 100vh;
   font-family: var(--#{$prefix}body-font-family);
-  /* TODO: Font Size */
+  font-size: var(--fs-0);
   font-weight: var(--#{$prefix}body-font-weight);
-  line-height: var(--#{$prefix}body-line-height);
+  line-height: calc(2px + var(--fs-0) + 2px);
   text-align: var(--#{$prefix}body-text-align);
   color: var(--#{$prefix}body-color);
   background-color: var(--#{$prefix}body-bg); /* 2 */
@@ -62,14 +62,9 @@
   container-type: inline-size;
 }
 
-// Remove default margin in favour of better control in authored CSS
-// :where(body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd) {
-//   margin-block-end: 0;
-// }
-
 // Set shorter line heights on headings and interactive elements
 :where(h1, h2, h3, h4, h5, h6, button, input, label) {
-  line-height: $headings-line-height;
+  line-height: 1.1;
 }
 
 /**
@@ -94,39 +89,44 @@
   font-family: $headings-font-family;
   font-style: $headings-font-style;
   font-weight: $headings-font-weight;
-  line-height: var(--#{$prefix}heading-line-height);
   color: var(--#{$prefix}heading-color);
   text-wrap: balance;
 }
 
 :where(h1) {
   @extend %heading;
-  /* TODO: Font Size */
+  font-size: var(--fs-5);
+  line-height: calc(2px + var(--fs-5) + 2px);
 }
 
 :where(h2) {
   @extend %heading;
-  /* TODO: Font Size */
+  font-size: var(--fs-4);
+  line-height: calc(2px + var(--fs-4) + 2px);
 }
 
 :where(h3) {
   @extend %heading;
-  /* TODO: Font Size */
+  font-size: var(--fs-3);
+  line-height: calc(2px + var(--fs-3) + 2px);
 }
 
 :where(h4) {
   @extend %heading;
-  /* TODO: Font Size */
+  font-size: var(--fs-2);
+  line-height: calc(2px + var(--fs-2) + 2px);
 }
 
 :where(h5) {
   @extend %heading;
-  /* TODO: Font Size */
+  font-size: var(--fs-1);
+  line-height: calc(2px + var(--fs-1) + 2px);
 }
 
 :where(h6) {
   @extend %heading;
-  /* TODO: Font Size */
+  font-size: var(--fs-0);
+  line-height: calc(2px + var(--fs-0) + 2px);
 }
 
 // Reset margins on paragraphs
@@ -188,7 +188,6 @@
 // Add the correct font size in all browsers
 :where(small) {
   font-size: $small-font-size;
-  /* TODO: Font Size */
 }
 
 // Mark
@@ -243,8 +242,7 @@
 // Code
 :where(pre, code, kbd, samp) {
   font-family: $font-family-code;
-  font-size: 1em; /* Correct the odd `em` font sizing in all browsers. */
-  /* TODO: Font Size */
+  font-size: $small-font-size;
 }
 
 // 1. Remove browser default top margin
@@ -256,14 +254,12 @@
   margin-bottom: $spacer; /* 2 */
   overflow: auto; /* 3 */
   font-size: $code-font-size;
-  /* TODO: Font Size */
   color: $pre-color;
   white-space: pre-wrap;
 
   // Account for some code outputs that place code tags in pre tags
   code {
     font-size: inherit;
-    /* TODO: Font Size */
     color: inherit;
     word-break: normal;
   }
@@ -271,7 +267,6 @@
 
 :where(code) {
   font-size: $code-font-size;
-  /* TODO: Font Size */
   color: var(--#{$prefix}code-color);
   word-wrap: break-word;
 
@@ -284,15 +279,13 @@
 :where(kbd) {
   padding: $kbd-padding-y $kbd-padding-x;
   font-size: $kbd-font-size;
-  /* TODO: Font Size */
   color: $kbd-color;
   background-color: $kbd-bg;
   @include border-radius($border-radius-sm);
 
   kbd {
     padding: 0;
-    font-size: 1em;
-    /* TODO: Font Size */
+    font-size: $kbd-font-size;
   }
 }
 
@@ -485,7 +478,6 @@
   font-weight: $legend-font-weight;
   line-height: inherit;
   font-size: $legend-font-size;
-  /* TODO: Font Size */
 
   + * {
     clear: left; /* 2 */
